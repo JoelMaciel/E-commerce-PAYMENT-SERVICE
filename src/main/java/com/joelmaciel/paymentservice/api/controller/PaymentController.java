@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,9 +17,14 @@ public class PaymentController {
 
     private final PaymentService paymentService;
 
+    @GetMapping("/orders/{orderId}")
+    public TransactionDetailsDTO getPaymentDetailsByOrderId(@PathVariable UUID orderId) {
+        return paymentService.detailsByOrderId(orderId);
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public TransactionDetailsDTO doPayment(@RequestBody @Valid PaymentRequest paymentRequest) {
-        return paymentService.doPayment(paymentRequest);
+        return paymentService.savePayment(paymentRequest);
     }
 }
