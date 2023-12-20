@@ -1,7 +1,7 @@
 package com.joelmaciel.paymentservice.api.controller;
 
-import com.joelmaciel.paymentservice.domain.model.TransactionDetailsDTO;
 import com.joelmaciel.paymentservice.domain.model.PaymentRequest;
+import com.joelmaciel.paymentservice.domain.model.TransactionDetailsDTO;
 import com.joelmaciel.paymentservice.domain.service.PaymentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
